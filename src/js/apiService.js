@@ -1,6 +1,6 @@
 const BASE_URL = 'https://pixabay.com/api/';
 const key = '21711861-4ca3c4c0e54ca90fa3aa7f59b';
-const pageNumber = '1';
+let pageNumber = '1';
 const searchQuery = '';
 const PER_PAGE = 12;
 

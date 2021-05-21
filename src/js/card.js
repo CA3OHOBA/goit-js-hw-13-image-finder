@@ -5,7 +5,7 @@ const refs = {
   form: document.querySelector('.search-form'),
   galleryList: document.querySelector('.gallery'),
   btn: document.querySelector('.more'),
-  input: document.querySelector('input')
+  input: document.querySelector('input'),
 };
 let pageNumber = 1;
 
@@ -18,7 +18,7 @@ function onFormSubmit(e) {
   const searchQuery = e.currentTarget.elements.query.value;
   clearGallery();
   if (searchQuery !== '') {
-    api.fetchCard(searchQuery).then(galleryMarkup);
+    api.fetchCard(searchQuery, pageNumber).then(galleryMarkup);
   }
 }
 
@@ -37,7 +37,7 @@ function clearGallery() {
 
 function loadMore() {
   const searchQuery = inputValue();
-  pageNumber++;
+  pageNumber = +1;
   api.fetchCard(searchQuery, pageNumber).then(galleryMarkup);
 }
 
