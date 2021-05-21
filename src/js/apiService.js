@@ -7,7 +7,9 @@ const PER_PAGE = 12;
 function fetchCard(searchQuery) {
   return fetch(
     `${BASE_URL}?image_type=photo&orientation=horizontal&q=${searchQuery}&page=${pageNumber}&per_page=${PER_PAGE}&key=${key}`,
-  ).then(response => response.json());
+  ).then(response => {
+    return response.ok ? response.json() : Promise.reject(`Error` + response.status);
+  });
 }
 
 export default { fetchCard };
